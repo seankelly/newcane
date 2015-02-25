@@ -18,7 +18,7 @@ proc cmd_unit {nick host hand chan text} {
     if {[regexp {^\t\* (.*)\n} $res -> ans]} {
       putquick "PRIVMSG $chan :units: $ans $to"
     } {
-      putquick "PRIVMSG $chan :units: [lindex [split $res \n] 0]"
+      putquick "PRIVMSG $chan :units: [string trim [lindex [split $res \n] 0]]"
     }
   }
 }
