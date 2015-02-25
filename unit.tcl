@@ -9,9 +9,7 @@ proc cmd_unit {nick host hand chan text} {
     putquick "PRIVMSG $chan :Need a 'from' unit"
     return
   }
-  set from [string map {\" {} \\ {} ; {}} $from]
-  set to [string map {\" {} \\ {} ; {}} $to]
-  set cmd [list exec units -q "$from" "$to"]
+  set cmd [list exec units -q $from $to]
   if {[catch $cmd res]} {
     putquick "PRIVMSG $chan :units error"
   } {
