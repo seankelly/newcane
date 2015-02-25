@@ -37,7 +37,7 @@ proc cmd_len {nick host hand chan text} {
 
 proc cmd_ping {nick host hand chan text} {
   set ping [list Ping! !gniP Pong!]
-  putchan $chan [lindex $ping [expr {int([::random::mt integer]%[llength $ping])}]]
+  putchan $chan [lindex $ping [expr {int(rand() * [llength $ping])}]]
 }
 
 proc cmd_rot13 {nick host hand chan text} {
